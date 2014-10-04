@@ -1,0 +1,53 @@
+
+
+<h2>Choose from a project:</h2><hr>
+ 
+
+ 
+  <% @projects.each do |offer| %>
+
+
+
+<p>
+  <strong>Title:</strong>
+  <%= offer.title %>
+</p>
+ 
+<p>
+  <strong>Description:</strong>
+  <%= offer.desc %>
+</p>
+
+<p>
+  <strong>Expiry Date:</strong>
+  <%= offer.exp %>
+</p>
+
+<p>
+  <strong>Product roll out date:</strong>
+  <%= offer.roll %>
+</p>
+
+<p>
+  <strong>Minimum Backing Amount:</strong>
+  <%= offer.min %>
+</p>
+
+
+
+<%= form_for :contract, url: contracts_path do |f| %>  <p>
+
+    <p><%= f.label :Backing_Amount %><br>
+    <%= f.text_field :back %></p>
+  <%= f.hidden_field :projid , :value => offer.id %>
+
+
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<hr>
+
+  <% end %>

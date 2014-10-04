@@ -17,6 +17,6 @@ end
 
 private
   def project_params
-    params.require(:project).permit(:title, :desc, :backed, :roll, :exp)
+    params.require(:project).permit(:title, :desc, :backed, :roll, :exp, :min)
   end
 end
