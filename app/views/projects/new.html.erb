@@ -1,0 +1,25 @@
+<%= form_for :project, url: projects_path do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+
+   <p>
+    <%= f.label :exp %><br>
+    <%= f.date_field :exp %>
+  </p>
+
+   <p>
+    <%= f.label :roll %><br>
+    <%= f.date_field :roll %>
+  </p>
+ 
+  <p>
+    <%= f.label :desc %><br>
+    <%= f.text_area :desc %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
