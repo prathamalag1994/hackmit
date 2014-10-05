@@ -4,6 +4,16 @@ Rails.application.routes.draw do
   resources :projects
   resources :contracts
 
+  get 'proj', to: 'contracts#new'
+  get 'welcome/proj', to: 'contracts#new'
+  get 'users/proj', to: 'contracts#new'
+  get 'proj/proj', to: 'contracts#new'
+  get 'contracts/proj', to: 'contracts#new'
+  get 'projects/proj', to: 'contracts#new'
+  get 'projs', to: 'projects#new'
+
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

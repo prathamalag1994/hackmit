@@ -6,6 +6,7 @@ def create
   @project.save
   if @project.save
   	@project.backed = 0
+    @project.pl = 0
   end
   @project.save
   redirect_to @project
@@ -17,6 +18,6 @@ end
 
 private
   def project_params
-    params.require(:project).permit(:title, :desc, :backed, :roll, :exp, :min)
+    params.require(:project).permit(:title, :desc, :backed, :roll, :exp, :min, :target, :ethercode, :pl)
   end
 end

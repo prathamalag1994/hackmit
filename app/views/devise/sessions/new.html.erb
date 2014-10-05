@@ -34,8 +34,8 @@
           <ul class="nav navbar-nav">
             <li  class="active"><%= link_to 'Home', welcome_index_path%></li>
             <li ><%= link_to 'Edit', edit_user_registration_path%></li>
-            <li><%= link_to 'Projects', 'leader'%></li>
-            <li><%= link_to 'Logout', 'offer'%></li>
+            <li><%= link_to 'Projects', 'proj'%></li>
+            <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

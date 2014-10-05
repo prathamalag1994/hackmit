@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141004223936) do
+ActiveRecord::Schema.define(version: 20141005025951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,9 @@ ActiveRecord::Schema.define(version: 20141004223936) do
     t.integer  "backed"
     t.date     "roll"
     t.float    "min"
+    t.string   "ethercode"
+    t.float    "target"
+    t.float    "pl"
   end
 
   create_table "users", force: true do |t|

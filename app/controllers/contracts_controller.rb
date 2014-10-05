@@ -8,9 +8,18 @@ def create
     @contract.save
   if @contract.save
   	@contract.custid = current_user.id
+  	@proj = Project.find(@contract.projid)
+  	if @proj.min > @contract.back
+  		@contract.destroy
+  	else
+    @proj.pl = @proj.pl + @contract.back
+  	@proj.backed = @proj.backed + 1
+  	@contract.save
+  	@proj.save
+  	redirect_to @contract
+  	end
   end
-  @contract.save
-  redirect_to @contract
+  
 end
 
 def show
