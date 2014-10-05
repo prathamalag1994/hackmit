@@ -10,16 +10,16 @@
     <title>Pratt - Free Bootstrap 3 Theme</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../assets/css/main.css" rel="stylesheet">
+    <link href="/assets/css/main.css" rel="stylesheet">
     
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
     
-    <script src="../assets/js/jquery.min.js"></script>
-    <script src="../assets/js/smoothscroll.js"></script>
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/smoothscroll.js"></script>
     
 
   </head>
@@ -78,7 +78,7 @@
                             <div class="panel-title">Sign Up</div>
                         </div>  
                         <div class="panel-body" >
-                            <form id="signupform" class="form-horizontal" role="form">
+                            <form id="signupform" class="form-horizontal" role="form" action="/users" method="post">
                                 
                                 <div id="signupalert" style="display:none" class="alert alert-danger">
                                     <p>Error:</p>
@@ -90,34 +90,28 @@
                                 <div class="form-group">
                                     <label for="email" class="col-md-3 control-label">Email</label>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control" name="email" placeholder="Email Address">
+                                        <input type="text" class="form-control" name="user[email]" placeholder="Email Address">
                                     </div>
                                 </div>
                                     
                                 <div class="form-group">
-                                    <label for="firstname" class="col-md-3 control-label">Name</label>
+                                    <label for="password" class="col-md-3 control-label">Password</label>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control" name="firstname" placeholder="First Name">
+                                        <input type="password" class="form-control" name="user[password]" placeholder="Password">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="lastname" class="col-md-3 control-label">Password</label>
+                                    <label for="password_configuration" class="col-md-3 control-label">Password Confirmation</label>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control" name="lastname" placeholder="Last Name">
+                                        <input type="password" class="form-control" name="user[password_confirmation]" placeholder="Password">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="password" class="col-md-3 control-label">Password Confirmation</label>
-                                    <div class="col-md-9">
-                                        <input type="password" class="form-control" name="passwd" placeholder="Password">
-                                    </div>
-                                </div>
-                                
+                               <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token"> 
 
                                 <div class="form-group">
                                     <!-- Button -->                                        
                                     <div class="col-md-offset-2 col-md-9">
-                                        <button id="btn-signup" type="button" class="btn btn-info "><i class="icon-hand-right"></i> &nbsp Sign Up</button>
+                                        <button id="btn-signup" type="submit" class="btn btn-info "><i class="icon-hand-right"></i> &nbsp Sign Up</button>
                                     </div>
                                 </div>
                                 
@@ -176,7 +170,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="assets/js/bootstrap.js"></script>
+    <script src="/assets/js/bootstrap.js"></script>
   <script>
   $('.carousel').carousel({
     interval: 3500
