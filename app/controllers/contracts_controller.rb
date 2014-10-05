@@ -10,8 +10,10 @@ def create
   contract_address = "ab9998252af519f64e25668c5145ab4647d30e74"
   gas_price  = "10000000000000000"
   gas_amount = "4000"
-  transaction_str = contract_address + " " + back_amount + " " + gas_price + " " + gas_amount + " " secret + " " + data
-  `/home/colin/Documents/cpp-etherem/build/eth/eth transact #{transaction_str}`
+  #transaction_str = contract_address + " " + back_amount + " " + gas_price + " " + gas_amount + " " secret + " " + data
+  transaction_str = "curl -X POST --data '{\"method\":\"transact\", \"params\":{\"sec\":\"#{secret}\",\"xValue\":\"#{back_amount}\",\"aDest\":\"#{contract_address}\",\"bData\":\"#{data}\",\"xGas\":\"#{gas_amount}\",\"xGasPrice\":\"#{gas_price}\"}, \"jsonrpc\":\"2.0\", \"id\":2}'"
+  #`/home/colin/Documents/cpp-etherem/build/eth/eth transact #{transaction_str}`
+  `transaction_str`
   @contract = Contract.new(contract_params)
   @contract.save
   if @contract.save
