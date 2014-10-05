@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-  	  @se = current_user
+  	  @se = user_signed_in?
   end
 end
