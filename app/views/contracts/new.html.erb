@@ -58,8 +58,8 @@
         <li class="sidebar-list">
           <a href="#">My Campaigns <span class="menu-icon fa fa-tachometer"></span></a>
         </li>
-        <li class="sidebar-list active">
-          <a href="#">New Campaign<span class="menu-icon fa fa-tasks"></span></a>
+        <li class="sidebar-list">
+          <a href="/projs">New Campaign<span class="menu-icon fa fa-tasks"></span></a>
         </li>
         <li class="sidebar-list">
           <a href="#">Settings <span class="menu-icon fa fa-cogs"></span></a>
@@ -160,6 +160,7 @@
 
 
           <div class="row">
+            <% @projects.each do |offer| %>
             <div class="col-lg-4 col-md-6 col-xs-12">
               <div class="widget">
                 <div class="widget-body">
@@ -167,68 +168,23 @@
                     <i class="fa fa-users"></i>
                   </div>
                   <div class="widget-content pull-left">
-                    <div class="title">Campaign Name</div>
-                    <div class="comment text-muted">Campaign Price</div>
-                    <div class="comment text-muted">End Date</div>
+                    <div class="title"><%= offer.title %></div>
+                    <div class="comment text-muted">Target: <%= offer.target %></div>
+                    <div class="comment text-muted">Expires: <%= offer.exp %></div>
                     <hr />
 
-                  </div>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sed ex imperdiet, mattis nunc a, molestie dui. Donec facilisis porta ante, nec cursus mauris dictum quis. Maecenas auctor quam et arcu varius, nec sodales nisl hendrerit. Etiam condimentum rutrum dignissim. Vestibulum ornare 
-
-                  <div class="clearfix"></div>
+                  </div><%= offer.desc %><div class="clearfix"></div>
                 <br />
-                  <button type="button" class="btn btn-default">View Campaign</button>
-                  
+                  <form accept-charset="UTF-8" action="/contracts" method="post"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" /></div>                     
+                    <input id="contract_projid" name="contract[projid]" type="hidden" value="<%= offer.id %>" />
+                    <input id="contract_back" name="contract[back]" type="number" style="padding:5px 10px 5px 10px;" placeholder="Back amount" >
+                    <button type="submit" class="btn btn-default">Back Campaign</button>
+                  </form>                  
                 </div>
 
               </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-xs-12">
-              <div class="widget">
-                <div class="widget-body">
-                  <div class="widget-icon red pull-left">
-                    <i class="fa fa-tasks"></i>
-                  </div>
-                  <div class="widget-content pull-left">
-                    <div class="title">Campaign Name</div>
-                    <div class="comment text-muted">Campaign Price</div>
-                    <div class="comment text-muted">End Date</div>
-                    <hr />
-
-                  </div>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sed ex imperdiet, mattis nunc a, molestie dui. Donec facilisis porta ante, nec cursus mauris dictum quis. Maecenas auctor quam et arcu varius, nec sodales nisl hendrerit. Etiam condimentum rutrum dignissim. Vestibulum ornare 
-
-                  <div class="clearfix"></div>
-                                <br />
-                  <button type="button" class="btn btn-default">View Campaign</button>
-                  
-
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-xs-12">
-              <div class="widget">
-                <div class="widget-body">
-                  <div class="widget-icon orange pull-left">
-                    <i class="fa fa-sitemap"></i>
-                  </div>
-                  <div class="widget-content pull-left">
-                      <div class="title">Campaign Name</div>
-                    <div class="comment text-muted">Campaign Price</div>
-                    <div class="comment text-muted">End Date</div>
-                    <hr />
-
-                  </div>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sed ex imperdiet, mattis nunc a, molestie dui. Donec facilisis porta ante, nec cursus mauris dictum quis. Maecenas auctor quam et arcu varius, nec sodales nisl hendrerit. Etiam condimentum rutrum dignissim. Vestibulum ornare 
-
-                  <div class="clearfix"></div>
-                                  <br />
-                  <button type="button" class="btn btn-default">View Campaign</button>
-                  
-                </div>
-              </div>
-            </div>
-
+            <% end %>
           </div>
 
 
