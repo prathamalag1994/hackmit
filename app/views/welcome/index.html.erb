@@ -39,13 +39,15 @@
 	        </div>
 	        <div class="navbar-collapse collapse">
 	          <ul class="nav navbar-nav">
-	            <li class="active"><a href="#home" class="smothscroll">Home</a></li>
-	            <li><a href="#desc" class="smothscroll">Projects</a></li>
-	            <li><a href="#showcase" class="smothScroll">Showcase</a></li>
+	        <li  class="active"><%= link_to 'Home', welcome_index_path%></li>
+            <li><%= link_to 'Edit', edit_user_registration_path%></li>
+            <li><%= link_to 'Projects', 'proj'%></li>
+            
 	          </ul>
 	          <ul class="nav navbar-nav navbar-right">
-	          	<li><a href="#contact" class="smothScroll">Register</a></li>
-	          	<li><a href="#contact" class="smothScroll">Log In</a></li>
+            <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+
+	          	
 
 				</ul>
 	        </div><!--/.nav-collapse -->
